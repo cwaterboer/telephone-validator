@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Number Validator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .valid {
+            color: green;
+        }
+
+        .invalid {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Phone Number Validator</h2>
+
+<input type="text" id="phoneInput" placeholder="Enter phone number">
+<button onclick="validatePhoneNumber()">Validate</button>
+
+<p id="resultMessage"></p>
+
+<script>
+    function telephoneCheck(str) {
+        var phoneRegex = /^(1\s?)?(\(\d{3}\)|\d{3})([\s\-]?)\d{3}([\s\-]?)\d{4}$/;
+        return phoneRegex.test(str);
+    }
+
+    function validatePhoneNumber() {
+        var phoneInput = document.getElementById('phoneInput').value;
+        var resultMessage = document.getElementById('resultMessage');
+
+        if (telephoneCheck(phoneInput)) {
+            resultMessage.innerHTML = "Valid Phone Number";
+            resultMessage.className = "valid";
+        } else {
+            resultMessage.innerHTML = "Invalid Phone Number";
+            resultMessage.className = "invalid";
+        }
+    }
+</script>
+
+</body>
+</html>
